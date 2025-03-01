@@ -1,10 +1,10 @@
-function Input(props) {
+function Input({inputID, inputName, inputType = 'text'}) {
 
     return (
-        <>
-            <label htmlFor={props.inputID}>{props.inputName}</label>
-            <input className="input" id={props.inputID}></input>    
-        </>
+        <div className="input_block">
+            <label htmlFor={inputID}>{inputName}</label>
+            <input className="input" id={inputID} type={inputType}></input>    
+        </div>
     )
 }
 
