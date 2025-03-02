@@ -1,0 +1,41 @@
+.header_wrapper {
+    cursor: pointer;
+}
+
+.form {
+    transform-origin: top center;
+}
+
+.hidden {
+    display: none;
+    transform: scaleY(0%);
+}
+
+.opened {
+    animation: open 0.3s;
+}
+
+@keyframes open {
+    from {
+        display: none;
+        transform: scaleY(0%);
+    } to {
+        display: block;
+        transform: scaleY(100%);
+    }
+}
+
+.closed {
+    animation: close 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes close {
+    from {
+        display: block;
+        transform: scaleY(100%);
+    } to {
+        display: none;
+        transform: scaleY(0%);
+    }
+}
