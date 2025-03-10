@@ -3,13 +3,13 @@ import '../styles/EditBlock.css'
 
 function EditBlock({children, blockName}) {
 
-    const [isHidden, setIsHidden] = useState("form hidden")
+    const [isHidden, setIsHidden] = useState("inputs hidden")
 
     const handleHeaderClick = function() {
-        if (isHidden === "form hidden" || isHidden === "form closed") {
-            setIsHidden("form opened")
+        if (isHidden === "inputs hidden" || isHidden === "inputs closed") {
+            setIsHidden("inputs opened")
         } else {
-            setIsHidden("form closed")
+            setIsHidden("inputs closed")
         }
     }
 
@@ -18,9 +18,9 @@ function EditBlock({children, blockName}) {
             <div className="header_wrapper" onClick={() => handleHeaderClick()}>
                 <h2 className="header">{blockName}</h2>
             </div>
-            <form action="" method="post" className={isHidden}>
+            <div className={isHidden}>
                 {children}
-            </form>
+            </div>
         </div>
     )
 }
