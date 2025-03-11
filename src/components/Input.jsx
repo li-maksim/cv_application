@@ -1,3 +1,5 @@
+import '../styles/input.css'
+
 function Input({inputID, inputName, inputType = 'text', }) {
 
     return (

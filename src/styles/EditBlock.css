@@ -2,8 +2,17 @@
     cursor: pointer;
 }
 
+.header {
+    font-size: 24px;
+    color: #424242;
+}
+
 .inputs {
     transform-origin: top center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 .hidden {

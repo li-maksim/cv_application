@@ -1,0 +1,20 @@
+.input_block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 15px;
+    color: #200e32;
+    font-weight: 700;
+}
+
+.input {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    background-color: #f3f4f6;
+    font-size: 17px;
+    height: 40px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
