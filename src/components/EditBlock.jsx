@@ -1,9 +1,14 @@
 import { useState } from 'react'
+import Input from './Input.jsx'
 import '../styles/EditBlock.css'
 
-function EditBlock({children, blockName}) {
+function EditBlock({blockName, arr, children}) {
 
     const [isHidden, setIsHidden] = useState("inputs hidden")
+
+    const inputs = arr.map((item) => {
+        return <Input inputID={item.id} inputName={item.name} inputType={item.type}></Input>
+    })
 
     const handleHeaderClick = function() {
         if (isHidden === "inputs hidden" || isHidden === "inputs closed") {
@@ -19,6 +24,7 @@ function EditBlock({children, blockName}) {
                 <h2 className="header">{blockName}</h2>
             </div>
             <div className={isHidden}>
+                {inputs}
                 {children}
             </div>
         </div>
