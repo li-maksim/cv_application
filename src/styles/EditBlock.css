@@ -1,5 +1,10 @@
 .header_wrapper {
+    padding: 10px;
     cursor: pointer;
+}
+
+.header_wrapper:hover {
+    background-color: var(--dark-grey);
 }
 
 .header {

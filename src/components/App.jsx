@@ -116,18 +116,22 @@ function App() {
 
           <EditBlock blockName="General information" arr={formData.generalInfo}></EditBlock>
           <EditBlock blockName="Education" arr={formData.schoolInfo}>
+            <div className="btns">
             <button className="btn input_block_btn" id="add_education" onClick={(e) => addMoreInputs(e)}>+</button>
             <button className="btn input_block_btn" id="del_education" onClick={(e) => deleteInputs(e)}>-</button>
+            </div>
           </EditBlock>
           <EditBlock blockName="Work experience" arr={formData.workInfo}>
+            <div className="btns">
             <button className="btn input_block_btn" id="add_work" onClick={(e) => addMoreInputs(e)}>+</button>
             <button className="btn input_block_btn" id="del_work" onClick={(e) => deleteInputs(e)}>-</button>
+            </div>
           </EditBlock>
           <EditBlock blockName="About Me" arr={formData.aboutMeInfo}></EditBlock>
 
           <div className="btns">
-              <button className="btn cancel_btn" type="reset">Clear</button>
-              <button className="btn sumbit_btn" type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
+              <button className="btn bottom_btn" type="reset">Clear</button>
+              <button className="btn bottom_btn" type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
           </div>
 
         </form>

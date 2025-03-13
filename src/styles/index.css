@@ -4,6 +4,10 @@
   font-family: 'Roboto Flex', sans-serif;
 }
 
+#root {
+  --dark-grey: #f3f4f6;
+}
+
 body {
   margin: 0;
 }
