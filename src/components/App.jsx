@@ -36,7 +36,6 @@ function App() {
   ]
 
   const [formData, setFormData] = useState({generalInfo, schoolInfo, workInfo, aboutMeInfo})
-  const [backup, setBackup] = useState({generalInfo, schoolInfo, workInfo, aboutMeInfo})
 
   function handleInputChange(e) {
     let name = e.target.name
@@ -50,16 +49,13 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault()
 
-    setBackup(formData)
     // console.log(formData)
 
     setCVClass("CV_section")
   }
 
-  function handleReset(e) {
-    e.preventDefault()
-
-    setFormData(backup)
+  function handleReset() {
+    setFormData({generalInfo, schoolInfo, workInfo, aboutMeInfo})
   }
 
   function addMoreInputs(e) {
@@ -116,7 +112,7 @@ function App() {
     <div className="container">
       <section className="edit_section">
             
-        <form action="" method="post" className="form" onChange={(e) => handleInputChange(e)} onReset={(e) => handleReset(e)}>
+        <form action="" method="post" className="form" onChange={(e) => handleInputChange(e)} onReset={() => handleReset()}>
 
           <EditBlock blockName="General information" arr={formData.generalInfo}></EditBlock>
           <EditBlock blockName="Education" arr={formData.schoolInfo}>
@@ -130,7 +126,7 @@ function App() {
           <EditBlock blockName="About Me" arr={formData.aboutMeInfo}></EditBlock>
 
           <div className="btns">
-              <button className="btn cancel_btn" type="reset">Cancel</button>
+              <button className="btn cancel_btn" type="reset">Clear</button>
               <button className="btn sumbit_btn" type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
           </div>
 
