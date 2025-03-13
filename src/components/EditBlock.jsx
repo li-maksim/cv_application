@@ -7,7 +7,11 @@ function EditBlock({blockName, arr, children}) {
     const [isHidden, setIsHidden] = useState("inputs hidden")
 
     const inputs = arr.map((item) => {
-        return <Input key={item.id} inputID={item.id} inputName={item.name} inputType={item.type}></Input>
+        if (item.value == undefined) {
+            item.value = ''
+        }
+        return (
+        <Input key={item.id} inputID={item.id} inputName={item.name} inputType={item.type} value={item.value}></Input>)
     })
 
     const handleHeaderClick = function() {
