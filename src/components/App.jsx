@@ -36,25 +36,71 @@ function App() {
 
   let schoolCount = 1
 
-  const schoolInfo = [
-    {id: 'schoolName', name: 'School name', type: 'text'},
-    {id: 'titleOfStudy', name: 'Title of study', type: 'text'},
+  const [schoolInfo, setSchoolInfo] = useState([
+    {id: `schoolName${schoolCount}`, name: 'School name', type: 'text'},
+    {id: `titleOfStudy${schoolCount}`, name: 'Title of study', type: 'text'},
     {id: `studyStart${schoolCount}`, name: 'Start date', type: 'date'},
     {id: `studyEnd${schoolCount}`, name: 'End Date', type: 'date'},
-  ]
+  ])
 
-  let jobCount = 1
+  let workCount = 1
 
-  const workInfo = [
-    {id: 'companyName', name: 'Company name', type: 'text'},
-    {id: 'positionTitle', name: 'Position Title', type: 'text'},
-    {id: `jobStart${jobCount}`, name: 'Start date', type: 'date'},
-    {id: `jobEnd${jobCount}`, name: 'End Date', type: 'date'},
-  ]
+  const [workInfo, setWorkInfo] = useState([
+    {id: `companyName${workCount}`, name: 'Company name', type: 'text'},
+    {id: `positionTitle${workCount}`, name: 'Position Title', type: 'text'},
+    {id: `jobStart${workCount}`, name: 'Start date', type: 'date'},
+    {id: `jobEnd${workCount}`, name: 'End Date', type: 'date'},
+  ])
 
   const aboutMeInfo = [
     {id: 'aboutMe', type: 'textarea'}
   ]
+
+  function addMoreInputs(e) {
+    e.preventDefault()
+    if (e.target.id === "add_education") {
+      schoolCount++
+      setSchoolInfo([
+        ...schoolInfo,
+        {id: `schoolName${schoolCount}`, name: 'School name', type: 'text'},
+        {id: `titleOfStudy${schoolCount}`, name: 'Title of study', type: 'text'},
+        {id: `studyStart${schoolCount}`, name: 'Start date', type: 'date'},
+        {id: `studyEnd${schoolCount}`, name: 'End Date', type: 'date'}
+      ])
+    } else {
+      workCount++
+      setWorkInfo([
+        ...workInfo,
+        {id: `companyName${workCount}`, name: 'Company name', type: 'text'},
+        {id: `positionTitle${workCount}`, name: 'Position Title', type: 'text'},
+        {id: `jobStart${workCount}`, name: 'Start date', type: 'date'},
+        {id: `jobEnd${workCount}`, name: 'End Date', type: 'date'}
+      ])
+    }
+  }
+
+  function deleteInputs(e) {
+    e.preventDefault()
+    if (e.target.id === "del_education") {
+      const newSchoolInfo = [...schoolInfo]
+      let i = 4 
+      while (i > 0) {
+        newSchoolInfo.pop()
+        i--
+      }
+      setSchoolInfo(newSchoolInfo)
+      schoolCount--
+    } else {
+      const newWorkInfo = [...workInfo]
+      let i = 4 
+      while (i > 0) {
+        newWorkInfo.pop()
+        i--
+      }
+      setWorkInfo(newWorkInfo)
+      workCount--
+    }
+  }
 
   return (
     <div className="container">
@@ -63,8 +109,14 @@ function App() {
         <form action="" method="post" className="form" onChange={(e) => handleInputChange(e)}>
 
           <EditBlock blockName="General information" arr={generalInfo}></EditBlock>
-          <EditBlock blockName="Education" arr={schoolInfo}></EditBlock>
-          <EditBlock blockName="Work experience" arr={workInfo}></EditBlock>
+          <EditBlock blockName="Education" arr={schoolInfo}>
+            <button className="btn input_block_btn" id="add_education" onClick={(e) => addMoreInputs(e)}>+</button>
+            <button className="btn input_block_btn" id="del_education" onClick={(e) => deleteInputs(e)}>-</button>
+          </EditBlock>
+          <EditBlock blockName="Work experience" arr={workInfo}>
+            <button className="btn input_block_btn" id="add_work" onClick={(e) => addMoreInputs(e)}>+</button>
+            <button className="btn input_block_btn" id="del_work" onClick={(e) => deleteInputs(e)}>-</button>
+          </EditBlock>
           <EditBlock blockName="About Me" arr={aboutMeInfo}></EditBlock>
 
           <div className="btns">
