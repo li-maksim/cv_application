@@ -1,7 +1,7 @@
 import { use, useState } from 'react'
 import '../styles/App.css'
-import Input from './Input.jsx'
 import EditBlock from './EditBlock.jsx'
+import CVSection from './CVSection.jsx'
 
 function App() {
 
@@ -46,10 +46,56 @@ function App() {
 
   const [CVClass, setCVClass] = useState("CV_section hidden")
 
+  const schoolArr = []
+  const jobsArr = []
+  const [CVData, setCVData] = useState({schools: [], jobs: []})
+
+  function createSchools(obj, n = 1) {
+    let name = 'schoolName' + n
+    if (!obj[name]) {
+        return 
+    } else {
+        let title = 'titleOfStudy' + n
+        let start = 'studyStart' + n
+        let end = 'studyEnd' + n
+        const item = {
+            schoolName: obj[name],
+            titleOfStudy: obj[title],
+            studyStart: obj[start],
+            studyEnd: obj[end]
+        }
+        schoolArr.push(item)
+        createSchools(obj, n + 1)
+    }
+  }
+
+  function createJobs(obj, n = 1) {
+    let name = 'companyName' + n
+    if (!obj[name]) {
+        return 
+    } else {
+        let title = 'positionTitle' + n
+        let start = 'jobStart' + n
+        let end = 'jobEnd' + n
+        const item = {
+            companyName: obj[name],
+            positionTitle: obj[title],
+            jobStart: obj[start],
+            jobEnd: obj[end]
+        }
+        jobsArr.push(item)
+        createJobs(obj, n + 1)
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
 
-    // console.log(formData)
+    schoolArr.length = 0
+    jobsArr.length = 0
+    createSchools(formData)
+    createJobs(formData)
+    setCVData({schools: schoolArr, jobs: jobsArr})
 
     setCVClass("CV_section")
   }
@@ -70,6 +116,8 @@ function App() {
         ...formData,
         schoolInfo: newSchoolInfo
       })
+      console.log(formData)
+
       setSchoolCount(schoolCount + 1)
     } else {
       const newWorkInfo = [...formData.workInfo]
@@ -94,8 +142,20 @@ function App() {
         newSchoolInfo.pop()
         i--
       }
-      setFormData({...formData, schoolInfo: newSchoolInfo})
+
+      let name = 'schoolName' + schoolCount
+      let title = 'titleOfStudy' + schoolCount
+      let start = 'studyStart' + schoolCount
+      let end = 'studyEnd' + schoolCount
+
+      const newFormData = {...formData, schoolInfo: newSchoolInfo}
+      delete newFormData[name]
+      delete newFormData[title]
+      delete newFormData[start]
+      delete newFormData[end]
+      setFormData(newFormData)
       setSchoolCount(schoolCount - 1)
+
     } else {
       const newWorkInfo = [...formData.workInfo]
       let i = 4 
@@ -103,10 +163,22 @@ function App() {
         newWorkInfo.pop()
         i--
       }
-      setFormData({...formData, workInfo: newWorkInfo})
-      setWorkCount(workCount - 1)
+
+      let name = 'companyName' + workCount
+      let title = 'positionTitle' + workCount
+      let start = 'jobStart' + workCount
+      let end = 'jobEnd' + workCount
+
+      const newFormData = {...formData, workInfo: newWorkInfo}
+      delete newFormData[name]
+      delete newFormData[title]
+      delete newFormData[start]
+      delete newFormData[end]
+      setFormData(newFormData)
+      setSchoolCount(workCount - 1)
     }
   }
+
 
   return (
     <div className="container">
@@ -137,18 +209,7 @@ function App() {
         </form>
       </section>
 
-      <section className={CVClass}>
-          <div className="general_info">
-            <h2>{formData.firstName + ' ' + formData.lastName}</h2>
-            <p>{formData.jobTitle}</p>
-            <h3>Contacts: </h3>
-            <p>{formData.phone}</p>
-            <p>{formData.email}</p>
-          </div>
-          <div className="other_info">
-
-          </div>
-      </section>
+      <CVSection schools={CVData.schools} jobs={CVData.jobs} hide={CVClass}></CVSection>
     </div>
   )
 }
