@@ -37,18 +37,14 @@ function App() {
 
   const [formData, setFormData] = useState({generalInfo, schoolInfo, workInfo, aboutMeInfo})
 
-  function handleInputChange(e) {
-    let name = e.target.name
-    let val = e.target.value
-    setFormData({...formData, [name]: val})
-    // console.log(formData)
-  }
+
 
   const [CVClass, setCVClass] = useState("CV_section hidden")
 
   const schoolArr = []
   const jobsArr = []
-  const [CVData, setCVData] = useState({schools: [], jobs: []})
+  const [CVData, setCVData] = useState({general: {}, schools: [], jobs: []})
+  const [btnText, setBtnText] = useState('Submit')
 
   function createSchools(obj, n = 1) {
     let name = 'schoolName' + n
@@ -88,6 +84,14 @@ function App() {
     }
   }
 
+  function handleInputChange(e) {
+    let name = e.target.name
+    let val = e.target.value
+    setFormData({...formData, [name]: val})
+
+    // console.log(formData)
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
 
@@ -95,9 +99,10 @@ function App() {
     jobsArr.length = 0
     createSchools(formData)
     createJobs(formData)
-    setCVData({schools: schoolArr, jobs: jobsArr})
+    setCVData({general: formData, schools: schoolArr, jobs: jobsArr})
 
     setCVClass("CV_section")
+    setBtnText("Edit")
   }
 
   function handleReset() {
@@ -205,13 +210,13 @@ function App() {
 
           <div className="btns">
               <button className="btn bottom_btn" type="reset">Clear</button>
-              <button className="btn bottom_btn" type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
+              <button className="btn bottom_btn" type="submit" onClick={(e) => handleSubmit(e)}>{btnText}</button>
           </div>
 
         </form>
       </section>
 
-      <CVSection generalInfo={formData} schools={CVData.schools} jobs={CVData.jobs} hide={CVClass}></CVSection>
+      <CVSection generalInfo={CVData.general} schools={CVData.schools} jobs={CVData.jobs} hide={CVClass}></CVSection>
     </div>
   )
 }

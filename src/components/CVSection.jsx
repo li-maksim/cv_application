@@ -1,4 +1,7 @@
 import '../styles/CVSection.css'
+import Icon from '@mdi/react'
+import { mdiPhone } from '@mdi/js'
+import { mdiEmailOutline } from '@mdi/js'
 
 function CVSection({generalInfo, schools, jobs, hide}) {
 
@@ -65,14 +68,19 @@ function CVSection({generalInfo, schools, jobs, hide}) {
         }
     }
 
-
     return (
         <section className={hide}>
         <div className="general_info">
             <Name />
             <h3 className="header">{generalInfo.jobTitle}</h3>
-            <p className="contact">{generalInfo.phone}</p>
-            <p className="contact">{generalInfo.email}</p>
+            <div className="contact">
+                <Icon path={mdiPhone} size={1} className="icon" />
+                <p>{generalInfo.phone}</p>
+            </div>
+            <div className="contact">
+                <Icon path={mdiEmailOutline} size={1} className="icon" />
+                <p>{generalInfo.email}</p>
+            </div>
         </div>
         <div className="other_info">
             <div className="other_info_block"><Schools /></div>

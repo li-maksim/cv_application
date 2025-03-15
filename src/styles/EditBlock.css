@@ -1,10 +1,17 @@
 .header_wrapper {
+    display: flex;
+    justify-content: space-between;
     padding: 10px 0px;
     cursor: pointer;
 }
 
 .header_wrapper:hover {
     background-color: var(--dark-grey);
+}
+
+.header_wrapper .icon {
+    color: var(--header-color);
+    margin-top: 5px;
 }
 
 .inputs {

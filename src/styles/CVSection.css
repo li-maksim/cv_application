@@ -25,8 +25,16 @@
     margin-top: 20px;
 }
 
-p:first-of-type {
-    margin-top: 40px;
+.general_info .contact {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 30px;
+}
+
+.general_info .contact p {
+    margin-bottom: 17px;
 }
 
 .other_info {
