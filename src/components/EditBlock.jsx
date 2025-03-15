@@ -4,7 +4,7 @@ import Icon from '@mdi/react';
 import { mdiTriangleDown } from '@mdi/js';
 import '../styles/EditBlock.css'
 
-function EditBlock({blockName, arr, children, componentClass = "inputs hidden"}) {
+function EditBlock({blockName, arr, children, componentClass = "inputs closed"}) {
 
     const [isHidden, setIsHidden] = useState(componentClass)
 
@@ -14,9 +14,8 @@ function EditBlock({blockName, arr, children, componentClass = "inputs hidden"})
     })
 
     const handleHeaderClick = function() {
-        if (isHidden === "inputs hidden" || isHidden === "inputs closed") {
-            setIsHidden("inputs opened")
-            setIsUp("")
+        if (isHidden === "inputs closed") {
+            setIsHidden("inputs")
         } else {
             setIsHidden("inputs closed")
         }

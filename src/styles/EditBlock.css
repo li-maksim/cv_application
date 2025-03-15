@@ -20,38 +20,11 @@
     flex-direction: column;
     gap: 15px;
     margin-top: 15px;
-}
-
-.hidden {
-    display: none;
-    transform: scaleY(0%);
-}
-
-.opened {
-    animation: open 0.3s;
-}
-
-@keyframes open {
-    from {
-        display: none;
-        transform: scaleY(0%);
-    } to {
-        display: block;
-        transform: scaleY(100%);
-    }
+    max-height: 500px;
+    transition: max-height 0.6s ease;
 }
 
 .closed {
-    animation: close 0.3s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes close {
-    from {
-        display: block;
-        transform: scaleY(100%);
-    } to {
-        display: none;
-        transform: scaleY(0%);
-    }
+    overflow: hidden;
+    max-height: 0px;
 }
