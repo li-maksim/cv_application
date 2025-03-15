@@ -12,7 +12,7 @@ function App() {
   const generalInfo = [
     {id: 'firstName', name: 'First name', type: 'text'},
     {id: 'lastName', name: 'Last name', type: 'text'},
-    {id: 'jobTitle', name: 'Job Title', type: 'text'},
+    {id: 'jobTitle', name: 'Job title', type: 'text'},
     {id: 'phone', name: 'Phone number', type: 'phone'},
     {id: 'email', name: 'Email', type: 'email'}
   ]
@@ -183,10 +183,10 @@ function App() {
   return (
     <div className="container">
       <section className="edit_section">
-            
+        <h1 className="header">CV Builder</h1>
         <form action="" method="post" className="form" onChange={(e) => handleInputChange(e)} onReset={() => handleReset()}>
 
-          <EditBlock blockName="General information" arr={formData.generalInfo}></EditBlock>
+          <EditBlock blockName="General information" arr={formData.generalInfo} componentClass="inputs open"></EditBlock>
           <EditBlock blockName="Education" arr={formData.schoolInfo}>
             <div className="btns">
             <button className="btn input_block_btn" id="add_education" onClick={(e) => addMoreInputs(e)}>+</button>
@@ -199,7 +199,9 @@ function App() {
             <button className="btn input_block_btn" id="del_work" onClick={(e) => deleteInputs(e)}>-</button>
             </div>
           </EditBlock>
-          <EditBlock blockName="About Me" arr={formData.aboutMeInfo}></EditBlock>
+          <EditBlock blockName="About Me" arr={[]}>
+            <textarea className="input" id="aboutMe" name="aboutMe" rows="20"></textarea>
+          </EditBlock>
 
           <div className="btns">
               <button className="btn bottom_btn" type="reset">Clear</button>
@@ -209,7 +211,7 @@ function App() {
         </form>
       </section>
 
-      <CVSection schools={CVData.schools} jobs={CVData.jobs} hide={CVClass}></CVSection>
+      <CVSection generalInfo={formData} schools={CVData.schools} jobs={CVData.jobs} hide={CVClass}></CVSection>
     </div>
   )
 }

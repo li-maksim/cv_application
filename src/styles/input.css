@@ -12,9 +12,14 @@
     border-width: 1px;
     border-radius: 8px;
     background-color: var(--dark-grey);
-    font-size: 17px;
-    height: 40px;
-    width: 300px;
+    font-size: 14px;
+    height: 30px;
+    max-width: 100%;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+#aboutMe {
+    height: 200px;
+    vertical-align: top;
 }

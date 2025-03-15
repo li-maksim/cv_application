@@ -2,9 +2,9 @@ import { useState } from 'react'
 import Input from './Input.jsx'
 import '../styles/EditBlock.css'
 
-function EditBlock({blockName, arr, children}) {
+function EditBlock({blockName, arr, children, componentClass = "inputs hidden"}) {
 
-    const [isHidden, setIsHidden] = useState("inputs hidden")
+    const [isHidden, setIsHidden] = useState(componentClass)
 
     const inputs = arr.map((item) => {
         return (
