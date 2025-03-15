@@ -1,3 +1,7 @@
+.CV_section.hidden {
+    display: none;
+}
+
 .CV_section {
     width: 50vw;
     max-height: 1000px;
@@ -23,18 +27,14 @@
 .general_info h3 {
     font-weight: 300;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .general_info .contact {
-    margin-top: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
     height: 30px;
-}
-
-.general_info .contact p {
-    margin-bottom: 17px;
 }
 
 .other_info {
@@ -46,7 +46,17 @@
     color: #000;
 }
 
+.other_info_block {
+    margin-bottom: 30px;
+}
+
 .other_info .header {
     text-align: center;
     text-transform: uppercase;
+    margin: 10px;
+}
+
+.other_info h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

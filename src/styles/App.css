@@ -47,6 +47,7 @@
 .input_block_btn {
     width: 40px;
     height: 40px;
+    margin-top: 5px;
     color: #6b7280;
     background-color: var(--dark-grey);
     font-weight: 700;
@@ -63,4 +64,14 @@
 h1.header {
     text-align: center;
     font-size: 32px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    padding: 8px;
+}
+
+.bottom_btn:nth-child(2) {
+    background-color: var(--violet-color);
+    color: #fff;
 }

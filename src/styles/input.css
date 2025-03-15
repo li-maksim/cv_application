@@ -19,6 +19,10 @@
     padding-right: 10px;
 }
 
+.input:focus {
+    border: 1px solid #81449D;
+}
+
 #aboutMe {
     height: 200px;
     vertical-align: top;

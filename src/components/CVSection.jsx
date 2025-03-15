@@ -12,7 +12,7 @@ function CVSection({generalInfo, schools, jobs, hide}) {
                     <div key={item.schoolName + index} className="school_block">
                         <h3>{item.schoolName}</h3>
                         <p>{item.titleOfStudy}</p>
-                        <p>From: {item.studyStart} to: {item.studyEnd}</p>
+                        <p>From: {item.studyStart} To: {item.studyEnd}</p>
                     </div>
                 )
             })
@@ -51,7 +51,7 @@ function CVSection({generalInfo, schools, jobs, hide}) {
         if (generalInfo.aboutMe) {
             return (
                 <>
-                    <h3>About Me</h3>
+                    <h2 className="header">About Me</h2>
                     <p>{generalInfo.aboutMe}</p>
                 </>
             )

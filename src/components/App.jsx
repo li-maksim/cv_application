@@ -10,24 +10,24 @@ function App() {
   const [workCount, setWorkCount] = useState(1)
 
   const generalInfo = [
-    {id: 'firstName', name: 'First name', type: 'text'},
-    {id: 'lastName', name: 'Last name', type: 'text'},
-    {id: 'jobTitle', name: 'Job title', type: 'text'},
-    {id: 'phone', name: 'Phone number', type: 'phone'},
+    {id: 'firstName', name: 'First Name', type: 'text'},
+    {id: 'lastName', name: 'Last Name', type: 'text'},
+    {id: 'jobTitle', name: 'Job Title', type: 'text'},
+    {id: 'phone', name: 'Phone Number', type: 'phone'},
     {id: 'email', name: 'Email', type: 'email'}
   ]
 
   const schoolInfo = [
-    {id: `schoolName${schoolCount}`, name: 'School name', type: 'text'},
-    {id: `titleOfStudy${schoolCount}`, name: 'Title of study', type: 'text'},
-    {id: `studyStart${schoolCount}`, name: 'Start date', type: 'date'},
+    {id: `schoolName${schoolCount}`, name: 'School Name', type: 'text'},
+    {id: `titleOfStudy${schoolCount}`, name: 'Title of Study', type: 'text'},
+    {id: `studyStart${schoolCount}`, name: 'Start Date', type: 'date'},
     {id: `studyEnd${schoolCount}`, name: 'End Date', type: 'date'},
   ]
 
   const workInfo = [
-    {id: `companyName${workCount}`, name: 'Company name', type: 'text'},
+    {id: `companyName${workCount}`, name: 'Company Name', type: 'text'},
     {id: `positionTitle${workCount}`, name: 'Position Title', type: 'text'},
-    {id: `jobStart${workCount}`, name: 'Start date', type: 'date'},
+    {id: `jobStart${workCount}`, name: 'Start Date', type: 'date'},
     {id: `jobEnd${workCount}`, name: 'End Date', type: 'date'},
   ]
 
@@ -191,14 +191,14 @@ function App() {
         <h1 className="header">CV Builder</h1>
         <form action="" method="post" className="form" onChange={(e) => handleInputChange(e)} onReset={() => handleReset()}>
 
-          <EditBlock blockName="General information" arr={formData.generalInfo} componentClass="inputs open"></EditBlock>
+          <EditBlock blockName="General Information" arr={formData.generalInfo} componentClass="inputs open"></EditBlock>
           <EditBlock blockName="Education" arr={formData.schoolInfo}>
             <div className="btns">
             <button className="btn input_block_btn" id="add_education" onClick={(e) => addMoreInputs(e)}>+</button>
             <button className="btn input_block_btn" id="del_education" onClick={(e) => deleteInputs(e)}>-</button>
             </div>
           </EditBlock>
-          <EditBlock blockName="Work experience" arr={formData.workInfo}>
+          <EditBlock blockName="Work Experience" arr={formData.workInfo}>
             <div className="btns">
             <button className="btn input_block_btn" id="add_work" onClick={(e) => addMoreInputs(e)}>+</button>
             <button className="btn input_block_btn" id="del_work" onClick={(e) => deleteInputs(e)}>-</button>

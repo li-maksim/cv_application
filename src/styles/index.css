@@ -8,6 +8,7 @@
   --dark-grey: #f3f4f6;
   --dark-blue: #193141;
   --header-color: #424242;
+  --violet-color: #81449D;
 }
 
 body {
@@ -15,5 +16,13 @@ body {
 }
 
 h1, h2, h3 {
+  margin: 0;
+}
+
+label {
+  font-weight: 500;
+}
+
+p {
   margin: 0;
 }
