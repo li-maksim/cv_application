@@ -26,7 +26,7 @@
 .edit_section .form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 0px;
 }
 
 .btn {
