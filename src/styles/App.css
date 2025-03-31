@@ -75,3 +75,13 @@ textarea {
     background-color: var(--violet-color);
     color: #fff;
 }
+
+.edit_block:nth-child(2) > .inputs > .input_block:nth-child(4n),
+.edit_block:nth-child(3) > .inputs > .input_block:nth-child(4n) {
+    margin-bottom: 35px;
+}
+
+.edit_block:nth-child(2) > .inputs > .input_block:nth-last-child(2),
+.edit_block:nth-child(3) > .inputs > .input_block:nth-last-child(2) {
+    margin-bottom: 0px;
+}
