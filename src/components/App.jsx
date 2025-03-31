@@ -48,39 +48,44 @@ function App() {
 
   function createSchools(obj, n = 1) {
     let name = 'schoolName' + n
-    if (!obj[name]) {
+    let title = 'titleOfStudy' + n
+    let start = 'studyStart' + n
+    let end = 'studyEnd' + n
+    if (n > formData.schoolInfo.length) {
         return 
     } else {
-        let title = 'titleOfStudy' + n
-        let start = 'studyStart' + n
-        let end = 'studyEnd' + n
-        const item = {
+        if (obj[name] || obj[title]) {
+          const item = {
             schoolName: obj[name],
             titleOfStudy: obj[title],
             studyStart: obj[start],
             studyEnd: obj[end]
-        }
-        schoolArr.push(item)
-        createSchools(obj, n + 1)
+          }
+          schoolArr.push(item)
+      }
+      createSchools(obj, n + 1)
     }
   }
 
   function createJobs(obj, n = 1) {
     let name = 'companyName' + n
-    if (!obj[name]) {
+    let title = 'positionTitle' + n
+    let start = 'jobStart' + n
+    let end = 'jobEnd' + n
+
+    if (n > formData.workInfo.length) {
         return 
     } else {
-        let title = 'positionTitle' + n
-        let start = 'jobStart' + n
-        let end = 'jobEnd' + n
+      if (obj[name] || obj[title]) {
         const item = {
-            companyName: obj[name],
-            positionTitle: obj[title],
-            jobStart: obj[start],
-            jobEnd: obj[end]
+          companyName: obj[name],
+          positionTitle: obj[title],
+          jobStart: obj[start],
+          jobEnd: obj[end]
         }
         jobsArr.push(item)
-        createJobs(obj, n + 1)
+      }
+      createJobs(obj, n + 1)
     }
   }
 
