@@ -1,5 +1,18 @@
-Simple CV Builder. 
+# Конструктор резюме
 
-Form contains 4 blocks (Education and Work Experience are expandable). Clicking on Submit button generates CV, which can be edited or cleared entirely. 
+Конструктор резюме, созданный с использованием React. Посмотреть можно по [ссылке](https://li-maksim-cvbuilder.netlify.app/).
 
-Link: https://li-maksim-cvbuilder.netlify.app/
+## Функции
+
+- Создание резюме на основе заполненной информации
+- Редактирование и удаление данных
+
+## Технологии
+
+- React
+
+## Структура проекта
+
+- assets: изображения
+- components: React-компоненты
+- styles: CSS-файлы
